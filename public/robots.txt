@@ -1,0 +1,20 @@
+User-agent: *
+Allow: /
+
+# Block access to admin or private areas if needed
+Disallow: /admin/
+Disallow: /private/
+
+# Block parameters or query strings if needed
+Disallow: /*?*
+
+# Allow critical resources
+Allow: /*.js$
+Allow: /*.css$
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.svg$
+Allow: /*.webp$
+
+# Define sitemap
+Sitemap: https://yourportfolio.com/sitemap.xml
