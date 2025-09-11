@@ -232,7 +232,7 @@ const Navigation: React.FC = () => {
                   >
                     <Link
                       to={link.path}
-                      className={`font-display text-8xl md:text-9xl font-bold text-[#1a1a1a] transition-colors relative ${location.pathname === link.path ? 'active-link' : ''
+                      className={`font-display text-4xl sm:text-5xl md:text-6xl lg:text-8xl xl:text-9xl font-bold text-[#1a1a1a] transition-colors relative ${location.pathname === link.path ? 'active-link' : ''
                         }`}
                       data-cursor-text={link.label}
                       onClick={() => setIsOpen(false)}

@@ -162,9 +162,9 @@ const Home = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8 }}
-              className="text-left mb-20"
+              className="text-left mb-12 md:mb-20"
             >
-              <h2 className="text-6xl md:text-7xl lg:text-8xl font-display font-bold text-black leading-none tracking-tight">
+              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-display font-bold text-black leading-none tracking-tight">
                   SKILLS
               </h2>
             </motion.div>
@@ -254,12 +254,12 @@ const Home = () => {
               whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
-              className="mb-20"
+              className="mb-12 md:mb-20"
             >
-              <h2 className="text-4xl md:text-5xl font-display font-bold text-white leading-none tracking-tight mb-4">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-white leading-none tracking-tight mb-4">
                 LATEST POSTS
               </h2>
-              <div className="w-16 h-0.5 bg-white mb-6"></div>
+              <div className="w-12 md:w-16 h-0.5 bg-white mb-4 md:mb-6"></div>
                   </motion.div>
                   
             {/* Blog Posts List */}
@@ -288,7 +288,7 @@ const Home = () => {
                       <span>•</span>
                       <span className="text-blue-400">React</span>
                     </div>
-                    <h3 className="text-xl md:text-2xl font-display font-medium text-white mb-2 group-hover:text-gray-300 transition-colors">
+                    <h3 className="text-lg sm:text-xl md:text-2xl font-display font-medium text-white mb-2 group-hover:text-gray-300 transition-colors">
                       Building Scalable React Applications
                     </h3>
                     <p className="text-gray-400 text-sm leading-relaxed max-w-2xl">
@@ -321,7 +321,7 @@ const Home = () => {
                       <span>•</span>
                       <span className="text-green-400">Node.js</span>
                     </div>
-                    <h3 className="text-xl md:text-2xl font-display font-medium text-white mb-2 group-hover:text-gray-300 transition-colors">
+                    <h3 className="text-lg sm:text-xl md:text-2xl font-display font-medium text-white mb-2 group-hover:text-gray-300 transition-colors">
                       Microservices Architecture with Node.js
                     </h3>
                     <p className="text-gray-400 text-sm leading-relaxed max-w-2xl">
@@ -354,7 +354,7 @@ const Home = () => {
                       <span>•</span>
                       <span className="text-orange-400">CSS</span>
                     </div>
-                    <h3 className="text-xl md:text-2xl font-display font-medium text-white mb-2 group-hover:text-gray-300 transition-colors">
+                    <h3 className="text-lg sm:text-xl md:text-2xl font-display font-medium text-white mb-2 group-hover:text-gray-300 transition-colors">
                       Modern CSS Techniques for 2025
                     </h3>
                     <p className="text-gray-400 text-sm leading-relaxed max-w-2xl">
@@ -387,7 +387,7 @@ const Home = () => {
                       <span>•</span>
                       <span className="text-purple-400">AI</span>
                     </div>
-                    <h3 className="text-xl md:text-2xl font-display font-medium text-white mb-2 group-hover:text-gray-300 transition-colors">
+                    <h3 className="text-lg sm:text-xl md:text-2xl font-display font-medium text-white mb-2 group-hover:text-gray-300 transition-colors">
                       AI Integration in Web Development
                     </h3>
                     <p className="text-gray-400 text-sm leading-relaxed max-w-2xl">
@@ -420,7 +420,7 @@ const Home = () => {
                       <span>•</span>
                       <span className="text-indigo-400">Career</span>
                     </div>
-                    <h3 className="text-xl md:text-2xl font-display font-medium text-white mb-2 group-hover:text-gray-300 transition-colors">
+                    <h3 className="text-lg sm:text-xl md:text-2xl font-display font-medium text-white mb-2 group-hover:text-gray-300 transition-colors">
                       From Junior to Senior Developer: My Journey
                     </h3>
                     <p className="text-gray-400 text-sm leading-relaxed max-w-2xl">
@@ -432,7 +432,7 @@ const Home = () => {
                       <ArrowUpRight className="w-5 h-5" />
                     </div>
                   </div>
-                </div>
+            </div>
               </motion.article>
           </motion.div>
 

@@ -47,11 +47,11 @@ const HeroSection = () => {
       `}</style>
 
       {/* Professional Layout Grid */}
-      <div className="h-full grid grid-cols-12 gap-8 px-6 md:px-12 lg:px-24 py-16">
+      <div className="h-full grid grid-cols-12 gap-4 md:gap-8 px-4 md:px-6 lg:px-12 xl:px-24 py-8 md:py-16">
         
         {/* Left Column - Name and Title */}
         <div className="col-span-12 lg:col-span-5 flex flex-col justify-center">
-          <div className="space-y-8">
+          <div className="space-y-6 md:space-y-8">
             {/* Name Section */}
             <div 
               className={`transition-all duration-[1200ms] ${
@@ -63,10 +63,10 @@ const HeroSection = () => {
                 opacity: 0,
               }}
             >
-              <h1 className="text-6xl md:text-7xl lg:text-8xl font-black text-black leading-none tracking-tight">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-black leading-none tracking-tight">
                 HIWA
               </h1>
-              <h1 className="text-6xl md:text-7xl lg:text-8xl font-black text-black leading-none tracking-tight">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-black leading-none tracking-tight">
                 SADRADIN
               </h1>
             </div>
@@ -83,12 +83,12 @@ const HeroSection = () => {
                 opacity: 0,
               }}
             >
-              <div className="space-y-4">
-                <h2 className="text-2xl md:text-3xl font-medium text-gray-600 tracking-wide">
+              <div className="space-y-3 md:space-y-4">
+                <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-medium text-gray-600 tracking-wide">
                   FULL STACK DEVELOPER
                 </h2>
-                <div className="w-24 h-1 bg-black"></div>
-                <p className="text-lg text-gray-500 leading-relaxed max-w-md">
+                <div className="w-16 md:w-24 h-0.5 md:h-1 bg-black"></div>
+                <p className="text-sm sm:text-base md:text-lg text-gray-500 leading-relaxed max-w-md">
                   Crafting digital experiences through innovative code and thoughtful design.
                 </p>
               </div>
@@ -97,12 +97,12 @@ const HeroSection = () => {
         </div>
 
         {/* Right Column - Image */}
-        <div className="col-span-12 lg:col-span-7 flex items-center justify-center">
+        <div className="col-span-12 lg:col-span-7 flex items-center justify-center mt-8 lg:mt-0">
           <div 
-            className="relative overflow-hidden rounded-2xl"
+            className="relative overflow-hidden rounded-xl md:rounded-2xl"
             style={{
-              width: animationStep >= 1 ? '500px' : '0px',
-              height: animationStep >= 1 ? '600px' : '0px',
+              width: animationStep >= 1 ? '280px' : '0px',
+              height: animationStep >= 1 ? '350px' : '0px',
               transition: 'all 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
               transitionDelay: '200ms',
             }}
