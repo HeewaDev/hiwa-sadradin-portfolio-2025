@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html.has-scroll-smooth {
+    overflow: hidden;
+  }
+
+  body {
+    @apply bg-dark text-light antialiased overflow-x-hidden;
+    cursor: none;
+  }
+  
+  ::selection {
+    @apply bg-light text-dark;
+  }
+}
+
+@layer components {
+  .custom-cursor {
+    @apply fixed w-6 h-6 rounded-full bg-light/80 mix-blend-difference pointer-events-none z-50 will-change-transform;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    perspective: 1000;
+  }
+
+  .magnetic-link {
+    @apply relative inline-block cursor-none transition-transform;
+  }
+
+  .link-hover {
+    @apply relative cursor-none;
+  }
+
+  .link-hover::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-px bg-light transition-all duration-300 ease-out-expo;
+  }
+
+  .link-hover:hover::after {
+    @apply w-full;
+  }
+
+  .reveal-text {
+    @apply relative overflow-hidden inline-block;
+  }
+
+  .horizontal-scroll-container {
+    @apply flex flex-nowrap;
+    width: 400vw;
+  }
+
+  .horizontal-scroll-section {
+    @apply w-screen h-screen flex items-center justify-center;
+  }
+  
+  .project-card {
+    @apply relative overflow-hidden rounded-lg transition-all duration-500;
+  }
+  
+  .project-card-image {
+    @apply w-full h-full object-cover transition-transform duration-1000 ease-out-expo;
+  }
+  
+  .project-card:hover .project-card-image {
+    @apply scale-105;
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-light via-light/80 to-light;
+  }
+}
+
+@layer utilities {
+  .mask-image {
+    -webkit-mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
+    mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
+  }
+}
