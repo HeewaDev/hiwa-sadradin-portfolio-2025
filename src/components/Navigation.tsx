@@ -127,7 +127,7 @@ const Navigation: React.FC = () => {
   return (
     <>
       <motion.header
-        className="fixed z-[60] top-0 left-0 right-0 w-full px-6 md:px-12 py-6 mix-blend-difference pointer-events-none"
+        className="fixed z-30 top-0 left-0 right-0 w-full px-6 md:px-12 py-6 pointer-events-none"
         variants={headerMotion}
         initial="initial"
         animate="animate"
@@ -140,7 +140,7 @@ const Navigation: React.FC = () => {
             data-cursor-text="Home"
           >
             <motion.div
-              className="inline-block px-6 py-2"
+              className="inline-block px-6 py-2 text-white"
               animate={{
                 color: '#ffffff',
                 transition: { duration: 0.5 },
