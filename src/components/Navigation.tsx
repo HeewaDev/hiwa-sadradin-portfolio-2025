@@ -127,7 +127,7 @@ const Navigation: React.FC = () => {
   return (
     <>
       <motion.header
-        className="fixed z-30 top-0 left-0 right-0 w-full px-6 md:px-12 py-6 pointer-events-none"
+        className="fixed z-30 top-0 left-0 right-0 w-full px-6 md:px-12 py-6 mix-blend-difference pointer-events-none"
         variants={headerMotion}
         initial="initial"
         animate="animate"
