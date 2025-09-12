@@ -7,6 +7,14 @@ export const useLocomotive = (start: boolean = true): MutableRefObject<Locomotiv
   useEffect(() => {
     if (!start) return;
 
+    // Check if device is mobile
+    const isMobile = window.innerWidth < 768 || 'ontouchstart' in window;
+    
+    // Disable locomotive scroll on mobile devices
+    if (isMobile) {
+      return;
+    }
+
     locomotiveScrollRef.current = new LocomotiveScroll({
       lenisOptions: {
         duration: 1.2,

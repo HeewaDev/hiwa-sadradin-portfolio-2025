@@ -61,7 +61,7 @@ const Home = () => {
         className="flex flex-col relative z-10"
       >
         {/* Crafting Digital Experiences Section */}
-        <section className="min-h-[120vh] flex flex-col justify-center px-6 md:px-12 lg:px-24 relative overflow-hidden bg-black text-white">
+        <section className="min-h-screen md:min-h-[120vh] flex flex-col justify-center px-4 md:px-6 lg:px-12 xl:px-24 relative overflow-hidden bg-black text-white py-16 md:py-0">
           <motion.div
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150vw] h-[150vh] pointer-events-none opacity-10"
             animate={{
@@ -154,7 +154,7 @@ const Home = () => {
         </section>
 
         {/* Full Stack Developer Skills - Accordion Style */}
-        <section className="py-32 md:py-40 px-6 md:px-12 lg:px-24 bg-white">
+        <section className="py-16 md:py-32 lg:py-40 px-4 md:px-6 lg:px-12 xl:px-24 bg-white">
           <div className="max-w-6xl mx-auto">
             {/* Section Title */}
             <motion.div
@@ -246,7 +246,7 @@ const Home = () => {
         </section>
 
         {/* Latest Blog Posts Section */}
-        <section className="py-32 md:py-40 px-6 md:px-12 lg:px-24 bg-black text-white">
+        <section className="py-16 md:py-32 lg:py-40 px-4 md:px-6 lg:px-12 xl:px-24 bg-black text-white">
           <div className="max-w-6xl mx-auto">
             {/* Section Header */}
               <motion.div
@@ -458,7 +458,7 @@ const Home = () => {
 
         {/* Contact Section */}
         <section 
-          className="py-32 md:py-40 px-6 md:px-12 lg:px-24" 
+          className="py-16 md:py-32 lg:py-40 px-4 md:px-6 lg:px-12 xl:px-24" 
           style={{ 
             backgroundColor: '#c4bdb3'
           }}

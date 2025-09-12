@@ -47,7 +47,7 @@ const HeroSection = () => {
       `}</style>
 
       {/* Professional Layout Grid */}
-      <div className="h-full grid grid-cols-12 gap-4 md:gap-8 px-4 md:px-6 lg:px-12 xl:px-24 py-8 md:py-16">
+      <div className="h-full grid grid-cols-12 gap-4 md:gap-8 px-4 md:px-6 lg:px-12 xl:px-24 py-8 md:py-16 min-h-screen">
         
         {/* Left Column - Name and Title */}
         <div className="col-span-12 lg:col-span-5 flex flex-col justify-center">
@@ -99,10 +99,10 @@ const HeroSection = () => {
         {/* Right Column - Image */}
         <div className="col-span-12 lg:col-span-7 flex items-center justify-center mt-8 lg:mt-0">
           <div 
-            className="relative overflow-hidden rounded-xl md:rounded-2xl"
+            className="relative overflow-hidden rounded-xl md:rounded-2xl mx-auto"
             style={{
-              width: animationStep >= 1 ? '280px' : '0px',
-              height: animationStep >= 1 ? '350px' : '0px',
+              width: animationStep >= 1 ? (window.innerWidth < 768 ? '250px' : '280px') : '0px',
+              height: animationStep >= 1 ? (window.innerWidth < 768 ? '320px' : '350px') : '0px',
               transition: 'all 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
               transitionDelay: '200ms',
             }}

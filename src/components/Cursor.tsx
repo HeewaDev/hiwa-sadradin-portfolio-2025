@@ -32,16 +32,35 @@ const Cursor: React.FC<CursorProps> = ({
   const [isHovering, setIsHovering] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const [clickEffect, setClickEffect] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Check if device is mobile
+  useEffect(() => {
+    const checkMobile = () => {
+      const isMobileDevice = window.innerWidth < 768 || 'ontouchstart' in window;
+      setIsMobile(isMobileDevice);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   // Update visibility when position changes from default
   useEffect(() => {
-    if (x !== -100 && y !== -100 && !isVisible) {
+    if (x !== -100 && y !== -100 && !isVisible && !isMobile) {
       setIsVisible(true);
     }
-  }, [x, y, isVisible]);
+  }, [x, y, isVisible, isMobile]);
 
   // Handle interactions with interactive elements
   useEffect(() => {
+    // Don't initialize cursor on mobile devices
+    if (isMobile) {
+      return;
+    }
+    
     // Interactive element selector - extend this to include any elements you want to apply effects to
     const interactiveSelector = '.link-hover, .magnetic-link, a, button, [data-cursor], [role="button"], .interactive';
     
@@ -153,7 +172,7 @@ const Cursor: React.FC<CursorProps> = ({
       // Restore default cursor
       document.body.style.cursor = 'auto';
     };
-  }, [isHovering, magnetStrength]);
+  }, [isHovering, magnetStrength, isMobile]);
 
   // Define cursor animation variants
   const variants = {
@@ -207,6 +226,11 @@ const Cursor: React.FC<CursorProps> = ({
       scale: 0,
     }
   };
+
+  // Don't render cursor on mobile devices
+  if (isMobile) {
+    return null;
+  }
 
   return (
     <>

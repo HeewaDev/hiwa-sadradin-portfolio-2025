@@ -24,8 +24,11 @@ const AppLayout = () => {
   const locomotiveScroll = useLocomotive();
 
   useEffect(() => {
-    // Update scroll on route change
-    locomotiveScroll.current?.scrollTo(0, { duration: 0 });
+    // Only reset scroll on desktop devices
+    const isMobile = window.innerWidth < 768 || 'ontouchstart' in window;
+    if (!isMobile && locomotiveScroll.current) {
+      locomotiveScroll.current.scrollTo(0, { duration: 0 });
+    }
   }, [location.pathname]);
 
   // Set page-specific SEO based on current route
