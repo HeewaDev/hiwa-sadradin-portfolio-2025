@@ -174,7 +174,7 @@ const Cursor: React.FC<CursorProps> = ({
     };
   }, [isHovering, magnetStrength, isMobile]);
 
-  // Define cursor animation variants with enhanced styling
+  // Professional cursor variants - clean and minimal
   const variants = {
     default: {
       x: x - defaultSize / 2,
@@ -182,13 +182,10 @@ const Cursor: React.FC<CursorProps> = ({
       height: defaultSize,
       width: defaultSize,
       opacity: isVisible ? 1 : 0,
-      scale: clickEffect ? 0.8 : 1,
+      scale: clickEffect ? 0.9 : 1,
       borderRadius: "50%",
-      backgroundColor: defaultColor,
-      mixBlendMode: "difference" as "difference",
-      border: "1px solid rgba(255, 255, 255, 0.3)",
-      boxShadow: "0 0 20px rgba(255, 255, 255, 0.1), inset 0 0 10px rgba(255, 255, 255, 0.05)",
-      backdropFilter: "blur(10px)",
+      backgroundColor: "rgba(0, 0, 0, 0.8)",
+      border: "1px solid rgba(255, 255, 255, 0.2)",
     },
     link: {
       x: x - hoverSize / 2 + magneticX,
@@ -198,11 +195,8 @@ const Cursor: React.FC<CursorProps> = ({
       opacity: isVisible ? 1 : 0,
       scale: clickEffect ? 0.9 : 1,
       borderRadius: "50%",
-      backgroundColor: hoverColor,
-      mixBlendMode: "difference" as "difference",
-      border: "2px solid rgba(255, 255, 255, 0.5)",
-      boxShadow: "0 0 30px rgba(255, 255, 255, 0.2), inset 0 0 20px rgba(255, 255, 255, 0.1)",
-      backdropFilter: "blur(15px)",
+      backgroundColor: "rgba(0, 0, 0, 0.6)",
+      border: "1px solid rgba(255, 255, 255, 0.3)",
     },
     text: {
       x: x - textSize / 2 + magneticX,
@@ -212,21 +206,17 @@ const Cursor: React.FC<CursorProps> = ({
       opacity: isVisible ? 1 : 0,
       scale: clickEffect ? 0.95 : 1,
       borderRadius: "50%",
-      backgroundColor: hoverColor,
-      mixBlendMode: "difference" as "difference",
-      border: "2px solid rgba(255, 255, 255, 0.4)",
-      boxShadow: "0 0 40px rgba(255, 255, 255, 0.3), inset 0 0 30px rgba(255, 255, 255, 0.1)",
-      backdropFilter: "blur(20px)",
+      backgroundColor: "rgba(0, 0, 0, 0.4)",
+      border: "1px solid rgba(255, 255, 255, 0.4)",
     }
   };
 
-  // Define inner dot for more precise pointing with enhanced styling
+  // Professional inner dot - clean and minimal
   const innerDotVariants = {
     default: {
       opacity: 1,
-      scale: 0.2,
+      scale: 0.3,
       backgroundColor: "rgba(255, 255, 255, 0.9)",
-      boxShadow: "0 0 8px rgba(255, 255, 255, 0.5)",
     },
     link: {
       opacity: 0,
@@ -253,9 +243,9 @@ const Cursor: React.FC<CursorProps> = ({
         animate={cursorVariant}
         transition={{ 
           type: "spring",
-          damping: 25,
-          stiffness: 400,
-          mass: 0.15,
+          damping: 20,
+          stiffness: 300,
+          mass: 0.1,
           restDelta: 0.001
         }}
       >
@@ -265,7 +255,7 @@ const Cursor: React.FC<CursorProps> = ({
           variants={innerDotVariants}
           animate={cursorVariant}
           transition={{ 
-            duration: 0.2,
+            duration: 0.15,
             ease: "easeOut"
           }}
         />
