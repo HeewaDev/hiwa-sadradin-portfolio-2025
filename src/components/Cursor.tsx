@@ -174,7 +174,7 @@ const Cursor: React.FC<CursorProps> = ({
     };
   }, [isHovering, magnetStrength, isMobile]);
 
-  // Define cursor animation variants
+  // Define cursor animation variants with enhanced styling
   const variants = {
     default: {
       x: x - defaultSize / 2,
@@ -186,6 +186,9 @@ const Cursor: React.FC<CursorProps> = ({
       borderRadius: "50%",
       backgroundColor: defaultColor,
       mixBlendMode: "difference" as "difference",
+      border: "1px solid rgba(255, 255, 255, 0.3)",
+      boxShadow: "0 0 20px rgba(255, 255, 255, 0.1), inset 0 0 10px rgba(255, 255, 255, 0.05)",
+      backdropFilter: "blur(10px)",
     },
     link: {
       x: x - hoverSize / 2 + magneticX,
@@ -197,6 +200,9 @@ const Cursor: React.FC<CursorProps> = ({
       borderRadius: "50%",
       backgroundColor: hoverColor,
       mixBlendMode: "difference" as "difference",
+      border: "2px solid rgba(255, 255, 255, 0.5)",
+      boxShadow: "0 0 30px rgba(255, 255, 255, 0.2), inset 0 0 20px rgba(255, 255, 255, 0.1)",
+      backdropFilter: "blur(15px)",
     },
     text: {
       x: x - textSize / 2 + magneticX,
@@ -208,14 +214,19 @@ const Cursor: React.FC<CursorProps> = ({
       borderRadius: "50%",
       backgroundColor: hoverColor,
       mixBlendMode: "difference" as "difference",
+      border: "2px solid rgba(255, 255, 255, 0.4)",
+      boxShadow: "0 0 40px rgba(255, 255, 255, 0.3), inset 0 0 30px rgba(255, 255, 255, 0.1)",
+      backdropFilter: "blur(20px)",
     }
   };
 
-  // Define inner dot for more precise pointing
+  // Define inner dot for more precise pointing with enhanced styling
   const innerDotVariants = {
     default: {
       opacity: 1,
       scale: 0.2,
+      backgroundColor: "rgba(255, 255, 255, 0.9)",
+      boxShadow: "0 0 8px rgba(255, 255, 255, 0.5)",
     },
     link: {
       opacity: 0,
@@ -242,9 +253,9 @@ const Cursor: React.FC<CursorProps> = ({
         animate={cursorVariant}
         transition={{ 
           type: "spring",
-          damping: 22,
-          stiffness: 350,
-          mass: 0.2,
+          damping: 25,
+          stiffness: 400,
+          mass: 0.15,
           restDelta: 0.001
         }}
       >
@@ -253,12 +264,15 @@ const Cursor: React.FC<CursorProps> = ({
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white rounded-full w-1 h-1"
           variants={innerDotVariants}
           animate={cursorVariant}
-          transition={{ duration: 0.15 }}
+          transition={{ 
+            duration: 0.2,
+            ease: "easeOut"
+          }}
         />
 
         {/* Text container */}
         {cursorText && (
-          <div className="flex items-center justify-center h-full w-full text-dark text-sm font-medium">
+          <div className="flex items-center justify-center h-full w-full text-white text-sm font-medium tracking-wider">
             {cursorText}
           </div>
         )}

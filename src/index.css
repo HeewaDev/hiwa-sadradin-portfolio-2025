@@ -23,23 +23,61 @@
     backface-visibility: hidden;
     transform-style: preserve-3d;
     perspective: 1000;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .custom-cursor::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    animation: cursorPulse 2s ease-in-out infinite;
+  }
+
+  @keyframes cursorPulse {
+    0%, 100% {
+      opacity: 0.3;
+      transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+      opacity: 0.6;
+      transform: translate(-50%, -50%) scale(1.1);
+    }
   }
 
   .magnetic-link {
-    @apply relative inline-block cursor-none transition-transform;
+    @apply relative inline-block cursor-none transition-all duration-300 ease-out;
+    transform-origin: center;
+  }
+
+  .magnetic-link:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
   }
 
   .link-hover {
-    @apply relative cursor-none;
+    @apply relative cursor-none transition-all duration-300 ease-out;
   }
 
   .link-hover::after {
     content: '';
-    @apply absolute bottom-0 left-0 w-0 h-px bg-light transition-all duration-300 ease-out-expo;
+    @apply absolute bottom-0 left-0 w-0 h-px bg-light transition-all duration-500 ease-out-expo;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
   }
 
   .link-hover:hover::after {
     @apply w-full;
+  }
+
+  .link-hover:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.2);
   }
 
   .reveal-text {
