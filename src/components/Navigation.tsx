@@ -127,7 +127,7 @@ const Navigation: React.FC = () => {
   return (
     <>
       <motion.header
-        className="fixed z-30 top-0 left-0 right-0 w-full px-6 md:px-12 py-6 mix-blend-difference pointer-events-none"
+        className="fixed z-30 top-0 left-0 right-0 w-full px-4 md:px-6 lg:px-12 py-6 mix-blend-difference pointer-events-none"
         variants={headerMotion}
         initial="initial"
         animate="animate"
@@ -140,7 +140,7 @@ const Navigation: React.FC = () => {
             data-cursor-text="Home"
           >
             <motion.div
-              className="inline-block px-6 py-2 text-white"
+              className="inline-block px-3 md:px-6 py-2 text-white"
               animate={{
                 color: '#ffffff',
                 transition: { duration: 0.5 },
@@ -149,7 +149,7 @@ const Navigation: React.FC = () => {
             >
               HIWA SADRALDIN
               <motion.div
-                className="h-0.5 absolute -bottom-1 left-0 right-0 mx-6"
+                className="h-0.5 absolute -bottom-1 left-0 right-0 mx-3 md:mx-6"
                 animate={{
                   scaleX: 1,
                   backgroundColor:
