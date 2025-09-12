@@ -63,11 +63,11 @@ const Projects: React.FC = () => {
         transition={{ duration: 0.5, delay: 0.8 }}
         className="flex flex-col min-h-screen"
       >
-        <section className="pt-32 px-6 md:px-12 lg:px-24">
+        <section className="pt-20 md:pt-32 px-4 md:px-6 lg:px-12 xl:px-24">
           <div className="max-w-6xl mx-auto">
             <AnimatedText 
               text="Collaborative Projects" 
-              className="mb-8 text-5xl md:text-7xl font-display font-bold" 
+              className="mb-6 md:mb-8 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-bold" 
               tag="h1"
             />
             

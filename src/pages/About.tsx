@@ -102,7 +102,7 @@ const About: React.FC = () => {
         transition={{ duration: 0.5, delay: isMobile ? 0.4 : 0.8 }}
         className="flex flex-col w-full overflow-hidden"
       >
-        <section className="min-h-screen py-8 px-4 sm:py-16 sm:px-6 md:pt-32 md:px-12 lg:px-24">
+        <section className="min-h-screen pt-20 py-8 px-4 sm:py-16 sm:px-6 md:pt-32 md:px-12 lg:px-24">
           <div className="w-full max-w-6xl mx-auto">
             <AnimatedText 
               text="About Me" 
