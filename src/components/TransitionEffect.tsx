@@ -11,10 +11,9 @@ const TransitionEffect: React.FC<TransitionEffectProps> = ({ setAnimationReady }
   
   // Check if device is mobile
   const isMobile = window.innerWidth < 768;
-  const isVerySmallMobile = window.innerWidth < 480;
   
-  // Total duration of all transition animations - mobile optimized
-  const totalDuration = isMobile ? 2000 : 4000;
+  // Total duration of all transition animations
+  const totalDuration = 4000;
   
   // Animation states
   const [showText, setShowText] = useState(false);
@@ -39,11 +38,11 @@ const TransitionEffect: React.FC<TransitionEffectProps> = ({ setAnimationReady }
   };
 
   useEffect(() => {
-    // Mobile-optimized timing - much faster transitions for better UX
+    // Mobile-optimized timing - slightly faster transitions for better UX
     const isMobile = window.innerWidth < 768;
-    const textDelay = isMobile ? 400 : 1000; // Much faster on mobile
-    const hideDelay = isMobile ? 1200 : 2800; // Much earlier hide on mobile
-    const exitDelay = isMobile ? 1400 : 3000; // Much earlier exit on mobile
+    const textDelay = isMobile ? 800 : 1000; // Slightly faster on mobile
+    const hideDelay = isMobile ? 2400 : 2800; // Slightly earlier hide on mobile
+    const exitDelay = isMobile ? 2600 : 3000; // Slightly earlier exit on mobile
 
     // Show text AFTER slide-in completes (not during)
     const textTimer = setTimeout(() => {
@@ -65,6 +64,9 @@ const TransitionEffect: React.FC<TransitionEffectProps> = ({ setAnimationReady }
       if (setAnimationReady) {
         setAnimationReady(true);
       }
+      // Ensure scroll is enabled after transition
+      document.body.style.overflow = 'auto';
+      document.body.style.height = 'auto';
     }, totalDuration);
 
     return () => {
@@ -72,18 +74,21 @@ const TransitionEffect: React.FC<TransitionEffectProps> = ({ setAnimationReady }
       clearTimeout(hideTextTimer);
       clearTimeout(exitTimer);
       clearTimeout(completeTimer);
+      // Ensure scroll is always restored on cleanup
+      document.body.style.overflow = 'auto';
+      document.body.style.height = 'auto';
     };
   }, [setAnimationReady, totalDuration]);
 
-  const pageName = getPageName();
+  // Cleanup effect to ensure scroll is restored when component unmounts
+  useEffect(() => {
+    return () => {
+      document.body.style.overflow = 'auto';
+      document.body.style.height = 'auto';
+    };
+  }, []);
 
-  // Skip transition on very small mobile devices for better performance
-  if (isVerySmallMobile) {
-    if (setAnimationReady) {
-      setTimeout(() => setAnimationReady(true), 100);
-    }
-    return null;
-  }
+  const pageName = getPageName();
 
   return (
     <>
@@ -92,7 +97,7 @@ const TransitionEffect: React.FC<TransitionEffectProps> = ({ setAnimationReady }
         className="fixed inset-0 w-screen h-screen z-40 flex items-center justify-center"
         style={{ 
           backgroundColor: "#ffffff",
-          pointerEvents: "none" // Don't block touch events on mobile
+          pointerEvents: startExit ? "none" : "auto" // Only block during transition, allow after
         }}
         initial={{ y: "100%" }} // Start completely below screen
         animate={
@@ -101,7 +106,7 @@ const TransitionEffect: React.FC<TransitionEffectProps> = ({ setAnimationReady }
             : { y: "0%" }    // Cover the screen completely
         }
         transition={{ 
-          duration: startExit ? (window.innerWidth < 768 ? 0.8 : 1.2) : (window.innerWidth < 768 ? 0.4 : 0.6), // Much faster on mobile
+          duration: startExit ? 1.2 : 0.6, // Keep original timing
           ease: "easeInOut"
         }}
       >
@@ -115,7 +120,7 @@ const TransitionEffect: React.FC<TransitionEffectProps> = ({ setAnimationReady }
             y: showText ? 0 : 20 
           }}
           transition={{ 
-            duration: window.innerWidth < 768 ? 0.3 : 0.6, // Faster on mobile
+            duration: 0.6, // Keep original timing
             ease: "easeOut" 
           }}
         >
