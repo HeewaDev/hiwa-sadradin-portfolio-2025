@@ -61,7 +61,7 @@ const Home = () => {
         className="flex flex-col relative z-10"
       >
         {/* Crafting Digital Experiences Section */}
-        <section className="min-h-screen md:min-h-[120vh] flex flex-col justify-center px-4 md:px-6 lg:px-12 xl:px-24 relative overflow-hidden bg-black text-white py-16 md:py-0">
+        <section className="min-h-screen md:min-h-[120vh] flex flex-col justify-center px-page-xs md:px-page-sm lg:px-page-md xl:px-page-lg relative overflow-hidden bg-black text-white py-section-xs md:py-0">
           <motion.div
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150vw] h-[150vh] pointer-events-none opacity-10"
             animate={{
@@ -114,7 +114,7 @@ const Home = () => {
               </motion.h1>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 lg:gap-16">
               <motion.p
                 className="text-xl text-white/80 leading-relaxed"
                 initial={{ opacity: 0, y: 50 }}
@@ -154,7 +154,7 @@ const Home = () => {
         </section>
 
         {/* Full Stack Developer Skills - Accordion Style */}
-        <section className="py-16 md:py-32 lg:py-40 px-4 md:px-6 lg:px-12 xl:px-24 bg-white">
+        <section className="py-section-xs md:py-section-sm lg:py-section-md px-page-xs md:px-page-sm lg:px-page-md xl:px-page-lg bg-white">
           <div className="max-w-6xl mx-auto">
             {/* Section Title */}
             <motion.div
@@ -162,7 +162,7 @@ const Home = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8 }}
-              className="text-left mb-12 md:mb-20"
+              className="text-left mb-section-xs md:mb-section-sm"
             >
               <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-display font-bold text-black leading-none tracking-tight">
                   SKILLS
@@ -246,7 +246,7 @@ const Home = () => {
         </section>
 
         {/* Latest Blog Posts Section */}
-        <section className="py-16 md:py-32 lg:py-40 px-4 md:px-6 lg:px-12 xl:px-24 bg-black text-white">
+        <section className="py-section-xs md:py-section-sm lg:py-section-md px-page-xs md:px-page-sm lg:px-page-md xl:px-page-lg bg-black text-white">
           <div className="max-w-6xl mx-auto">
             {/* Section Header */}
               <motion.div
@@ -254,7 +254,7 @@ const Home = () => {
               whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
-              className="mb-12 md:mb-20"
+              className="mb-section-xs md:mb-section-sm"
             >
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-white leading-none tracking-tight mb-4">
                 LATEST POSTS
@@ -458,13 +458,10 @@ const Home = () => {
 
         {/* Contact Section */}
         <section 
-          className="py-16 md:py-32 lg:py-40 px-4 md:px-6 lg:px-12 xl:px-24" 
-          style={{ 
-            backgroundColor: '#c4bdb3'
-          }}
+          className="py-section-xs md:py-section-sm lg:py-section-md px-page-xs md:px-page-sm lg:px-page-md xl:px-page-lg bg-beige"
         >
           <div className="container mx-auto max-w-5xl">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 lg:gap-16 items-center">
               <div>
                 <h2 className="text-4xl md:text-5xl font-display font-bold text-black interactive" data-cursor-text="PROJECT">
                   Ready to start your project?

@@ -63,16 +63,16 @@ const Projects: React.FC = () => {
         transition={{ duration: 0.5, delay: 0.8 }}
         className="flex flex-col min-h-screen"
       >
-        <section className="pt-20 md:pt-32 px-4 md:px-6 lg:px-12 xl:px-24">
+        <section className="pt-section-xs md:pt-section-sm px-page-xs md:px-page-sm lg:px-page-md xl:px-page-lg">
           <div className="max-w-6xl mx-auto">
             <AnimatedText 
               text="Collaborative Projects" 
-              className="mb-6 md:mb-8 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-bold" 
+              className="mb-section-xs md:mb-section-sm text-display-sm md:text-display-md lg:text-display-lg xl:text-display-xl font-display font-bold" 
               tag="h1"
             />
             
             <motion.p 
-              className="text-xl text-light/80 leading-relaxed max-w-2xl mb-24"
+              className="text-body-xl text-light/80 leading-relaxed max-w-2xl mb-section-lg"
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.2 }}
@@ -80,7 +80,7 @@ const Projects: React.FC = () => {
               A collection of projects I've collaborated on with talented teams, pushing the boundaries of digital experiences.
             </motion.p>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-12">
               {projects.map((project) => (
                 <motion.div
                   key={project.id}
@@ -138,10 +138,10 @@ const Projects: React.FC = () => {
                       />
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 lg:gap-12">
                       <div className="md:col-span-2">
-                        <h2 className="text-4xl font-display font-bold mb-6">{selectedProject.title}</h2>
-                        <p className="text-xl text-light/80 leading-relaxed mb-8">{selectedProject.description}</p>
+                        <h2 className="text-display-xs md:text-display-sm font-display font-bold mb-section-xs">{selectedProject.title}</h2>
+                        <p className="text-body-xl text-light/80 leading-relaxed mb-section-xs">{selectedProject.description}</p>
                         <div className="flex flex-wrap gap-3">
                           {selectedProject.technologies.map((tech, index) => (
                             <span 
@@ -154,7 +154,7 @@ const Projects: React.FC = () => {
                         </div>
                       </div>
 
-                      <div className="space-y-8">
+                      <div className="space-y-6 md:space-y-8">
                         <div>
                           <h3 className="text-light/60 uppercase tracking-wider text-sm mb-2">Role</h3>
                           <p className="text-xl">{selectedProject.role}</p>

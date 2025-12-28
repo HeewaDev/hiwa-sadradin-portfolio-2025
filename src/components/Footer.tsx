@@ -35,9 +35,9 @@ const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="bg-black text-white py-12 px-6 md:px-12 lg:px-24">
+    <footer className="bg-black text-white py-section-xs md:py-section-sm px-page-sm md:px-page-md lg:px-page-lg">
       <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 lg:gap-12 items-center">
           {/* Brand */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -46,7 +46,7 @@ const Footer: React.FC = () => {
             transition={{ duration: 0.6 }}
             className="text-center md:text-left"
           >
-            <h3 className="text-2xl font-display font-bold mb-2">HIWA SADRADIN</h3>
+            <h3 className="text-heading-lg font-display font-bold mb-2">HIWA SADRADIN</h3>
             <p className="text-gray-400 text-sm">Full Stack Developer</p>
           </motion.div>
 

@@ -102,15 +102,15 @@ const About: React.FC = () => {
         transition={{ duration: 0.5, delay: isMobile ? 0.4 : 0.8 }}
         className="flex flex-col w-full overflow-hidden"
       >
-        <section className="min-h-screen pt-20 py-8 px-4 sm:py-16 sm:px-6 md:pt-32 md:px-12 lg:px-24">
+        <section className="min-h-screen pt-section-xs py-section-xs px-page-xs md:pt-section-sm md:py-section-sm md:px-page-sm lg:px-page-md xl:px-page-lg">
           <div className="w-full max-w-6xl mx-auto">
             <AnimatedText 
               text="About Me" 
-              className="mb-6 sm:mb-12 md:mb-16 text-3xl sm:text-5xl md:text-7xl font-display font-bold text-center" 
+              className="mb-section-xs md:mb-section-sm text-display-sm md:text-display-lg lg:text-display-xl font-display font-bold text-center" 
               tag="h1"
             />
             
-            <div className="flex flex-col md:grid md:grid-cols-2 md:gap-12 lg:gap-24">
+            <div className="flex flex-col md:grid md:grid-cols-2 md:gap-6 lg:gap-12 xl:gap-16">
               {/* Skills Accordion section - Appears first on mobile */}
               <div className="w-full mb-10 md:mb-0 md:order-2">
                 <motion.div
@@ -119,7 +119,7 @@ const About: React.FC = () => {
                   transition={{ duration: 0.5 }}
                   ref={targetRef}
                 >
-                  <h2 className="text-xl sm:text-2xl font-display font-bold mb-8 sm:mb-10 text-center md:text-left">Expertise</h2>
+                  <h2 className="text-heading-md md:text-heading-lg font-display font-bold mb-section-xs md:mb-section-sm text-center md:text-left">Expertise</h2>
                   
                   {/* Accordion Component */}
                   <div className="space-y-0">
@@ -192,13 +192,13 @@ const About: React.FC = () => {
               
               {/* About text - Appears second on mobile */}
               <div className="w-full md:order-1">
-                <p className="text-sm sm:text-base md:text-lg text-light/80 leading-relaxed mb-4 sm:mb-6 animate-p" ref={paragraphRef}>
+                <p className="text-body-md md:text-body-lg text-light/80 leading-relaxed mb-4 md:mb-6 animate-p" ref={paragraphRef}>
                   I am a Full-Stack Developer and Project Manager at Xcreative, where I leverage my expertise in both frontend and backend technologies to develop efficient, scalable web applications and manage project workflows. With a comprehensive technical skillset, I specialize in creating robust solutions that meet business requirements and enhance user experience.
                 </p>
-                <p className="text-sm sm:text-base md:text-lg text-light/80 leading-relaxed mb-4 sm:mb-6 animate-p">
+                <p className="text-body-md md:text-body-lg text-light/80 leading-relaxed mb-4 md:mb-6 animate-p">
                   My background includes previous experience at Lezzoo where I built operational dashboards and CMS platforms, as well as freelance development creating custom web applications and APIs with a focus on seamless integration and performance optimization. I'm passionate about delivering high-quality solutions that drive business value and enhance operational efficiency.
                 </p>
-                <p className="text-sm sm:text-base md:text-lg text-light/80 leading-relaxed animate-p">
+                <p className="text-body-md md:text-body-lg text-light/80 leading-relaxed animate-p">
                   I hold a Bachelor's degree in Computer Science from Knowledge University (2020-2024) and a Diploma in Information Technology from EPU (2018-2020). Beyond my core development skills, I'm also passionate about data science and visualization, working with Python libraries like NumPy, Pandas, Matplotlib, and PyTorch.
                 </p>
               </div>

@@ -54,7 +54,7 @@ const TextMarquee: React.FC<TextMarqueeProps> = ({
           {Array(6).fill(null).map((_, index) => (
             <span 
               key={index}
-              className="text-5xl md:text-6xl lg:text-7xl font-display font-bold text-white opacity-90 mx-4 tracking-wide"
+              className="text-display-md md:text-display-lg lg:text-display-xl font-display font-bold text-white opacity-90 mx-4 tracking-wide"
             >
               {text}
             </span>

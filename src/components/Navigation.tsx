@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
+import { X } from 'lucide-react';
 
 const Navigation: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -127,7 +128,7 @@ const Navigation: React.FC = () => {
   return (
     <>
       <motion.header
-        className="fixed z-30 top-0 left-0 right-0 w-full px-4 md:px-6 lg:px-12 py-6 mix-blend-difference pointer-events-none"
+        className={`fixed z-30 top-0 left-0 right-0 w-full px-page-xs md:px-page-sm lg:px-page-md py-6 pointer-events-none ${isOpen ? '' : 'mix-blend-difference'}`}
         variants={headerMotion}
         initial="initial"
         animate="animate"
@@ -140,9 +141,9 @@ const Navigation: React.FC = () => {
             data-cursor-text="Home"
           >
             <motion.div
-              className="inline-block px-3 md:px-6 py-2 text-white"
+              className={`inline-block px-3 md:px-6 py-2 ${isOpen ? 'text-dark' : 'text-light'}`}
               animate={{
-                color: '#ffffff',
+                color: isOpen ? 'rgb(10, 10, 10)' : 'rgb(245, 245, 245)', // dark when menu open, light otherwise
                 transition: { duration: 0.5 },
               }}
               whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
@@ -152,12 +153,13 @@ const Navigation: React.FC = () => {
                 className="h-0.5 absolute -bottom-1 left-0 right-0 mx-3 md:mx-6"
                 animate={{
                   scaleX: 1,
-                  backgroundColor:
-                    activeSection === 'home'
-                      ? '#ffffff'
+                  backgroundColor: isOpen
+                    ? 'rgb(10, 10, 10)' // dark when menu open
+                    : activeSection === 'home'
+                      ? 'rgb(245, 245, 245)' // light color
                       : activeSection === 'services'
-                        ? '#ff5733'
-                        : '#3498db',
+                        ? 'rgb(233, 79, 55)' // accent red
+                        : 'rgb(52, 152, 219)', // accent blue
                 }}
                 initial={{ scaleX: 0 }}
                 transition={{ duration: 0.5 }}
@@ -180,21 +182,21 @@ const Navigation: React.FC = () => {
             <div className="flex flex-col items-end justify-center space-y-2 w-8">
               {/* Custom hamburger/close icon with animations */}
               <motion.div
-                className="h-0.5 bg-white rounded-full origin-center"
+                className={`h-0.5 rounded-full origin-center ${isOpen ? 'bg-dark' : 'bg-white'}`}
                 initial={{ width: '100%' }}
                 animate={isOpen ? "open" : isHovered ? "hover" : "closed"}
                 variants={topLineVariants}
                 transition={{ duration: 0.3, ease: [0.76, 0, 0.24, 1] }}
               />
               <motion.div
-                className="h-0.5 bg-white rounded-full origin-center"
+                className={`h-0.5 rounded-full origin-center ${isOpen ? 'bg-dark' : 'bg-white'}`}
                 initial={{ width: '75%' }}
                 animate={isOpen ? "open" : isHovered ? "hover" : "closed"}
                 variants={middleLineVariants}
                 transition={{ duration: 0.3, ease: [0.76, 0, 0.24, 1] }}
               />
               <motion.div
-                className="h-0.5 bg-white rounded-full origin-center"
+                className={`h-0.5 rounded-full origin-center ${isOpen ? 'bg-dark' : 'bg-white'}`}
                 initial={{ width: '50%' }}
                 animate={isOpen ? "open" : isHovered ? "hover" : "closed"}
                 variants={bottomLineVariants}
@@ -208,16 +210,25 @@ const Navigation: React.FC = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="fixed inset-0 z-50 flex items-center justify-center py-96 px-6 md:px-12 lg:px-24"
+            className="fixed inset-0 z-50 flex items-center justify-center py-section-xl px-page-sm md:px-page-md lg:px-page-lg bg-beige"
             variants={menuVariants}
             initial="initial"
             animate="animate"
             exit="exit"
             style={{
-              backgroundColor: '#c4bdb3',
               backgroundImage: 'url("https://www.transparenttextures.com/patterns/textured-paper.png")'
             }}
           >
+            {/* Close Button */}
+            <button
+              onClick={toggleMenu}
+              className="absolute top-6 right-6 md:top-8 md:right-8 z-[60] p-2 hover:bg-dark/10 rounded-full transition-colors duration-300 magnetic-link"
+              data-cursor-text="Close"
+              aria-label="Close menu"
+            >
+              <X className="w-6 h-6 md:w-8 md:h-8 text-dark" />
+            </button>
+            
             <div className="perspective-[1200px] overflow-hidden w-full">
               <nav className="flex flex-col items-center text-center space-y-8">
                 {navLinks.map((link, i) => (
@@ -232,14 +243,14 @@ const Navigation: React.FC = () => {
                   >
                     <Link
                       to={link.path}
-                      className={`font-display text-4xl sm:text-5xl md:text-6xl lg:text-8xl xl:text-9xl font-bold text-[#1a1a1a] transition-colors relative ${location.pathname === link.path ? 'active-link' : ''
+                      className={`font-display text-display-md sm:text-display-lg md:text-display-xl lg:text-display-2xl xl:text-display-3xl font-bold text-dark transition-colors relative ${location.pathname === link.path ? 'active-link' : ''
                         }`}
                       data-cursor-text={link.label}
                       onClick={() => setIsOpen(false)}
                     >
                       {location.pathname === link.path && (
                         <motion.div
-                          className="h-[4px] bg-[#e94f37] absolute bottom-4 left-0 w-full transition-all duration-300"
+                          className="h-1 bg-red-500 absolute bottom-4 left-0 w-full transition-all duration-300"
                           initial={{ scaleX: 0 }}
                           animate={{ scaleX: 1 }}
                           exit={{ scaleX: 0 }}

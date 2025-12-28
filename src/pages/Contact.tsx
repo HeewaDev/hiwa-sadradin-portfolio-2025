@@ -24,17 +24,17 @@ const Contact: React.FC = () => {
         className="flex flex-col"
         ref={containerRef}
       >
-        <section className="min-h-screen pt-16 md:pt-32 px-4 md:px-6 lg:px-12 xl:px-24">
+        <section className="min-h-screen pt-section-xs md:pt-section-sm px-page-xs md:px-page-sm lg:px-page-md xl:px-page-lg">
           <div className="max-w-6xl mx-auto">
             <AnimatedText 
               text="Let's Work Together" 
-              className="mb-8 md:mb-16 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-bold" 
+              className="mb-section-xs md:mb-section-sm text-display-sm md:text-display-md lg:text-display-lg xl:text-display-xl font-display font-bold" 
               tag="h1"
             />
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-24">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 lg:gap-16">
               <motion.div style={{ y: y1 }}>
-                <h2 className="text-xl sm:text-2xl font-display font-bold mb-6 md:mb-8">Contact Information</h2>
+                <h2 className="text-heading-md md:text-heading-lg font-display font-bold mb-section-xs">Contact Information</h2>
                 <ul className="space-y-4 md:space-y-6">
                   <li>
                     <span className="block text-xs md:text-sm text-light/60 mb-1">Email</span>
@@ -94,8 +94,8 @@ const Contact: React.FC = () => {
               </motion.div>
               
               <motion.div style={{ y: y2 }}>
-                <h2 className="text-xl sm:text-2xl font-display font-bold mb-6 md:mb-8">Send a Message</h2>
-                <form className="space-y-4 md:space-y-6">
+                <h2 className="text-heading-md md:text-heading-lg font-display font-bold mb-section-xs">Send a Message</h2>
+                <form className="space-y-6 md:space-y-8">
                   <div>
                     <label htmlFor="name" className="block text-xs md:text-sm text-light/60 mb-1">Name</label>
                     <input 

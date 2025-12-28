@@ -95,8 +95,8 @@ const TransitionEffect: React.FC<TransitionEffectProps> = ({ setAnimationReady }
       {/* Single White Background - Mobile Optimized */}
       <motion.div 
         className="fixed inset-0 w-screen h-screen z-40 flex items-center justify-center"
+        className="bg-white"
         style={{ 
-          backgroundColor: "#ffffff",
           pointerEvents: startExit ? "none" : "auto" // Only block during transition, allow after
         }}
         initial={{ y: "100%" }} // Start completely below screen

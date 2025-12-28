@@ -29,7 +29,7 @@ const BlogPostCard: React.FC<BlogPostCardProps> = ({ post, index, onClick }) => 
       onClick={onClick}
       data-cursor-text="Read"
     >
-      <div className="relative overflow-hidden rounded-lg aspect-[4/3] mb-6">
+      <div className="relative overflow-hidden rounded-lg aspect-[4/3] mb-4 md:mb-6">
         <img 
           src={post.image} 
           alt={post.title}
@@ -42,11 +42,11 @@ const BlogPostCard: React.FC<BlogPostCardProps> = ({ post, index, onClick }) => 
         </div>
       </div>
       
-      <div className="space-y-3">
-        <h3 className="text-xl font-display font-bold group-hover:text-light/80 transition-colors">
+      <div className="space-y-3 md:space-y-4">
+        <h3 className="text-heading-md font-display font-bold group-hover:text-light/80 transition-colors">
           {post.title}
         </h3>
-        <p className="text-light/60 text-sm leading-relaxed">
+        <p className="text-light/60 text-body-sm leading-relaxed">
           {post.excerpt}
         </p>
         

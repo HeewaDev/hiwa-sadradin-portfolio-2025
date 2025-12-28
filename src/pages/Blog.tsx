@@ -92,16 +92,16 @@ const Blog: React.FC = () => {
         transition={{ duration: 0.5, delay: 0.8 }}
         className="flex flex-col min-h-screen"
       >
-        <section className="pt-20 md:pt-32 px-4 md:px-6 lg:px-12 xl:px-24">
+        <section className="pt-section-xs md:pt-section-sm px-page-xs md:px-page-sm lg:px-page-md xl:px-page-lg">
           <div className="max-w-6xl mx-auto">
             <AnimatedText 
               text="Blog & Insights" 
-              className="mb-6 md:mb-8 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-bold" 
+              className="mb-section-xs md:mb-section-sm text-display-sm md:text-display-md lg:text-display-lg xl:text-display-xl font-display font-bold" 
               tag="h1"
             />
             
             <motion.p 
-              className="text-xl text-light/80 leading-relaxed max-w-2xl mb-12"
+              className="text-body-xl text-light/80 leading-relaxed max-w-2xl mb-section-xs md:mb-section-sm"
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.2 }}
@@ -111,7 +111,7 @@ const Blog: React.FC = () => {
 
             {/* Category Filter */}
             <motion.div 
-              className="flex flex-wrap gap-4 mb-16"
+              className="flex flex-wrap gap-4 mb-section-xs md:mb-section-sm"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 1.4 }}
@@ -138,7 +138,7 @@ const Blog: React.FC = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 1.6 }}
-                className="mb-16"
+                className="mb-section-xs md:mb-section-sm"
               >
                 <div className="relative overflow-hidden rounded-lg aspect-[16/9] mb-8">
                   <img 
@@ -178,7 +178,7 @@ const Blog: React.FC = () => {
             )}
 
             {/* Blog Posts Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-12">
               {filteredPosts.map((post, index) => (
                 <motion.article
                   key={post.id}
@@ -265,7 +265,7 @@ const Blog: React.FC = () => {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 20 }}
                     transition={{ duration: 0.5 }}
-                    className="space-y-8"
+                    className="space-y-6 md:space-y-8"
                   >
                     {/* Post Header */}
                     <header className="space-y-6">
