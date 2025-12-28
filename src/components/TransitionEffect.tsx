@@ -18,6 +18,7 @@ const TransitionEffect: React.FC<TransitionEffectProps> = ({ setAnimationReady }
   // Animation states
   const [showText, setShowText] = useState(false);
   const [startExit, setStartExit] = useState(false);
+  const [isComplete, setIsComplete] = useState(false);
 
   // Get page name based on current route
   const getPageName = () => {
@@ -57,10 +58,15 @@ const TransitionEffect: React.FC<TransitionEffectProps> = ({ setAnimationReady }
     // Start exit animation after text disappears
     const exitTimer = setTimeout(() => {
       setStartExit(true);
+      // Also set complete after exit animation duration
+      setTimeout(() => {
+        setIsComplete(true);
+      }, 1200); // Exit animation duration
     }, exitDelay);
 
     // Set animation ready after all transitions complete
     const completeTimer = setTimeout(() => {
+      setIsComplete(true);
       if (setAnimationReady) {
         setAnimationReady(true);
       }
@@ -88,25 +94,24 @@ const TransitionEffect: React.FC<TransitionEffectProps> = ({ setAnimationReady }
     };
   }, []);
 
-  const pageName = getPageName();
+  // COMPLETELY DISABLED - Return null immediately, no rendering
+  return null;
+
+  // Don't render if transition is complete
+  if (isComplete || startExit) {
+    return null;
+  }
 
   return (
     <>
       {/* Single White Background - Mobile Optimized */}
       <motion.div 
-        className="fixed inset-0 w-screen h-screen z-40 flex items-center justify-center"
-        className="bg-white"
-        style={{ 
-          pointerEvents: startExit ? "none" : "auto" // Only block during transition, allow after
-        }}
+        className="fixed inset-0 w-screen h-screen z-[100] flex items-center justify-center bg-white"
         initial={{ y: "100%" }} // Start completely below screen
-        animate={
-          startExit 
-            ? { y: "-100%" } // Exit completely above screen
-            : { y: "0%" }    // Cover the screen completely
-        }
+        animate={{ y: "0%", opacity: 1 }}    // Cover the screen completely
+        exit={{ y: "-100%", opacity: 0 }}    // Exit completely above screen
         transition={{ 
-          duration: startExit ? 1.2 : 0.6, // Keep original timing
+          duration: 0.6,
           ease: "easeInOut"
         }}
       >

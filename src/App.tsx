@@ -96,7 +96,7 @@ const AppLayout = () => {
       />
       <Navigation />
       <AnimatePresence mode="wait">
-        <Suspense fallback={<div className="loading-fallback">Loading...</div>}>
+        <Suspense fallback={null}>
           <Routes location={location} key={location.pathname}>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />

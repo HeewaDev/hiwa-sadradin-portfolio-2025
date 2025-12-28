@@ -97,14 +97,6 @@ const Navigation: React.FC = () => {
     },
   };
 
-  // Adjusted headerMotion to only control opacity, not position
-  const headerMotion = {
-    initial: { opacity: 0 },
-    animate: {
-      opacity: isVisible ? 1 : 0, // Fade in/out only, no position change
-      transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] },
-    },
-  };
 
   // Menu button line variants
   const topLineVariants = {
@@ -129,9 +121,9 @@ const Navigation: React.FC = () => {
     <>
       <motion.header
         className={`fixed z-30 top-0 left-0 right-0 w-full px-page-xs md:px-page-sm lg:px-page-md py-6 pointer-events-none ${isOpen ? '' : 'mix-blend-difference'}`}
-        variants={headerMotion}
-        initial="initial"
-        animate="animate"
+        initial={{ opacity: 1 }}
+        animate={{ opacity: isVisible ? 1 : 0 }}
+        transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
         style={{ willChange: 'opacity' }}
       >
         <div className="flex justify-between items-center pointer-events-auto">

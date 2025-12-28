@@ -55,9 +55,8 @@ const Home = () => {
       {/* PORTFOLIO CONTENT - Below the hero */}
       <motion.main
         ref={containerRef}
-        initial={{ opacity: 0 }}
+        initial={{ opacity: 1 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1 }}
         className="flex flex-col relative z-10"
       >
         {/* Crafting Digital Experiences Section */}
